@@ -15,8 +15,6 @@
     <div class="panel-content">
 
 <!-- Header -->
-        <h2>Weekly Timetable</h2>
-
 
 <!-- ENTIRE TIMETABLE -->
             <div class="timetable">
@@ -93,7 +91,10 @@
                     <div class="event fri" style="--start:2; --duration:1; color: #64D258">
                         COSC262<br> Lecture E7
                     </div>
-
+                    
+                    <div class="event fri" style="--start: 5; --duration:1; color: #f167b8">
+                        MATH120<br> Lecture C3
+                    </div>
                     <div class="event fri" style="--start:7; --duration:2; color: #64D258">
                         COSC262<br> Tutorial JE 133
                     </div>
@@ -103,41 +104,80 @@
 </div>
 
     <div class="panel" >
-        <div class="panel-title">Quizzes</div>
+        <div class="panel-title">Quizzes & Assignments</div>
         <div class="panel-content">
-            <h2>Quizzes</h2>
-            <p>Upcoming quiz dates and details.</p>
-        </div>
-    </div>
+<!-- ENTIRE TIMETABLE -->
+            <div class="timetable">
 
-    <div class="panel" >
-        <div class="panel-title">Assignments</div>
-        <div class="panel-content">
-            <h2>Assignments</h2>
-            <p>Track due dates and progress.</p>
-        </div>
-    </div>
 
-    <div class="panel" >
-        <div class="panel-title">Exams</div>
-        <div class="panel-content">
-            <h2>Exams</h2>
-            <p>Final exam schedule and preparation.</p>
+<!-- Times -->
+                <div class="time-column">
+                    <div>8:00</div>
+                    <div>9:00</div>
+                    <div>10:00</div>
+                    <div>11:00</div>
+                    <div>12:00</div>
+                    <div>1:00</div>
+                    <div>2:00</div>
+                    <div>3:00</div>
+                    <div>4:00</div>
+                    <div>5:00</div>
+                </div>
+
+
+<!-- Timetable Grid -->
+                <div class="grid">
+
+<!-- Days -->
+
+                    <div class="day">Monday</div>
+                    <div class="day">Tuesday</div>
+                    <div class="day">Wednesday</div>
+                    <div class="day">Thursday</div>
+                    <div class="day">Friday</div>
+
+
+<!-- Events -->
+                    <div class="event tue" style="--start:6; --duration:1; color: #f167b8;">
+                        <a href="https://learn.canterbury.ac.nz/course/section.php?id=429848" target="_blank">Math120</a><br> Quiz
+                    </div>
+                    
+                    <div class="event thu" style="--start:7; --duration:1; color: #4ACBD2">
+                        <a href="https://learn.canterbury.ac.nz/course/section.php?id=421850 " target="_blank">EMTH210</a><br> Homework
+                    </div>
+
+                    <div class="event fri" style="--start:7; --duration:1; color: #f167b8">
+                        <a href="https://learn.canterbury.ac.nz/course/section.php?id=421859" target="_blank">MATH120</a><br> Homework (Anytime)
+                    </div>
+
+                    <div class="event fri" style="--start:8; --duration:1; color: #8C5FF3">
+                        <a href="https://quiz2026.csse.canterbury.ac.nz/course/view.php?id=11" target="_blank">SENG201</a><br> Quiz
+                    </div>
+
+                    <div class="event fri" style="--start:9; --duration:1; color: #4ACBD2">
+                        <a href="https://learn.canterbury.ac.nz/course/section.php?id=421859" target="_blank">EMTH210</a><br> Quiz
+                    </div>
+
+                    <div class="event fri" style="--start:10; --duration:1; color: #64D258">
+                        <a href="https://quiz2026.csse.canterbury.ac.nz/course/overview.php?id=4" target="_blank">COSC262</a><br> Quiz
+                    </div>
+            </div>
         </div>
     </div>
+</div>
 
     <div class="panel" >
         <div class="panel-title">Priority</div>
         <div class="panel-content">
-            <h2>What Should I Do?</h2>
-            <p>Smart priority suggestions coming soon.</p>
+            <h2>tbd</h2>
+            <p></p>
         </div>
     </div>
 
     <div class="panel" onclick="togglePanel(this)">
         <div class="panel-title">Study</div>
         <div class="panel-content">
-            <h2>Study Timer</h2>
+            <h2>tbd</h2>
             <div id="timerDisplay">0:00:00</div>
             <div class="timer-buttons">
                 <button onclick="startTimer(event)">Start</button>
