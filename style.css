@@ -1,5 +1,5 @@
 /* =========================
-   GLOBAL RESET
+   GLOBAL
 ========================= */
 
 * {
@@ -15,6 +15,16 @@ body {
     overflow: hidden;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
 /* =========================
    MAIN LAYOUT
 ========================= */
@@ -25,6 +35,8 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+
+
 
 /* =========================
    PANELS (HOME STATE)
