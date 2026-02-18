@@ -1,0 +1,287 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #1a1a1a, #111);
+    color: #e5e5e5;
+    overflow: hidden;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   PANELS (HOME STATE)
+========================= */
+
+.panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(2rem, 6vw, 5rem);
+    border-bottom: 1px solid #2a2a2a;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    transition: 
+        flex 0.6s cubic-bezier(.77,0,.18,1),
+        opacity 0.4s ease,
+        background 0.3s ease;
+}
+
+.panel:last-child {
+    border-bottom: none;
+}
+
+.panel:hover {
+    background: #1f1f1f;
+}
+
+/* =========================
+   ACTIVE PANEL (EXPANDED)
+========================= */
+
+.panel.active {
+    flex: 10;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    font-size: 2rem;
+}
+
+/* Fade other panels */
+.panel.fade {
+    flex: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================
+   PANEL TITLE
+========================= */
+
+.panel-title {
+    transition: opacity 0.4s ease;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.panel.active .panel-title {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    font-size: 1.8rem;
+}
+
+/* =========================
+   PANEL CONTENT
+========================= */
+
+.panel-content {
+    position: absolute;
+    inset: 0;
+    padding: 80px 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    background: #111;
+    font-size: 1.2rem;
+    overflow-y: auto;
+}
+
+.panel.active .panel-content {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =========================
+   TIMER
+========================= */
+
+#timerDisplay {
+    font-size: 2.5rem;
+    margin: 20px 0;
+}
+
+.timer-buttons button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    background: #333;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.timer-buttons button:hover {
+    background: #555;
+}
+
+/* =========================
+   TIMETABLE
+========================= */
+
+.timetable {
+    display: flex;
+    margin-top: 40px;
+    height: 70vh;
+    overflow-x: auto;
+}
+
+/* Time column */
+
+.time-column {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    width: 70px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Grid */
+
+.grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 40px repeat(10, 1fr);
+    position: relative;
+    border-left: 1px solid #333;
+}
+
+/* Day headers */
+
+.day {
+    text-align: center;
+    border-bottom: 1px solid #333;
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+/* Horizontal grid lines */
+
+.grid::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent calc(100% / 10 - 1px),
+        #222 calc(100% / 10 - 1px),
+        #222 calc(100% / 10)
+    );
+    pointer-events: none;
+}
+
+/* Event blocks */
+
+.event {
+    position: absolute;
+    width: 19%;
+    margin-left: 1%;
+    padding: 6px;
+    font-size: 0.8rem;
+    background: #2a2f36;
+    border-radius: 8px;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+/* Event vertical positioning logic */
+
+.event {
+    top: calc(40px + (var(--start) - 1) * (100% - 40px) / 10);
+    height: calc(var(--duration) * (100% - 40px) / 10);
+}
+
+/* Column positioning */
+
+.mon { left: 0%; }
+.tue { left: 20%; }
+.wed { left: 40%; }
+.thu { left: 60%; }
+.fri { left: 80%; }
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .panel {
+        font-size: 2.2rem;
+    }
+
+    .panel.active .panel-title {
+        left: 20px;
+    }
+
+    .panel-content {
+        padding: 80px 20px;
+    }
+
+    .timetable {
+        height: 60vh;
+    }
+
+    .event {
+        font-size: 0.65rem;
+    }
+}
+
+/* =========================
+   RETURN HOME BUTTON
+========================= */
+
+#homeButton {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    padding: 12px 28px;
+    font-size: 1rem;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#homeButton.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#homeButton:hover {
+    background: #333;
+}
