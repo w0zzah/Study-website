@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="homeButton">Back</button>
+<div class="container">
+
+<!-- Schedule Panel-->
+<div class="panel">
+    <div class="panel-title">Schedule</div>
+    <div class="panel-content">
+
+<!-- Header -->
+        <h2>Weekly Timetable</h2>
+
+
+<!-- ENTIRE TIMETABLE -->
+            <div class="timetable">
+
+
+<!-- Times -->
+                <div class="time-column">
+                    <div>8:00</div>
+                    <div>9:00</div>
+                    <div>10:00</div>
+                    <div>11:00</div>
+                    <div>12:00</div>
+                    <div>1:00</div>
+                    <div>2:00</div>
+                    <div>3:00</div>
+                    <div>4:00</div>
+                    <div>5:00</div>
+                </div>
+
+
+<!-- Timetable Grid -->
+                <div class="grid">
+
+<!-- Days -->
+
+                    <div class="day">Monday</div>
+                    <div class="day">Tuesday</div>
+                    <div class="day">Wednesday</div>
+                    <div class="day">Thursday</div>
+                    <div class="day">Friday</div>
+
+
+<!-- Events -->
+                    <div class="event mon" style="--start:3; --duration:2; color: #8C5FF3;">
+                        SENG201<br> Lecture E8
+                    </div>
+
+                    <div class="event mon" style="--start:4; --duration:1; color: #4ACBD2;">
+                        EMTH210<br> Lecture C1
+                    </div>
+
+                    <div class="event tue" style="--start:6; --duration:1; color: #f167b8;">
+                        MATH120<br> Tutorial JE 241
+                    </div>
+
+                    <div class="event tue" style="--start:9; --duration:1; color: #8C5FF3;">
+                        SENG201<br> Lecture E5
+                    </div>
+
+                    <div class="event tue" style="--start:10; --duration:1; color: #64D258">
+                        COSC262<br> Lecture A1
+                    </div>
+
+                    <div class="event wed" style="--start:2; --duration:1; color: #8C5FF3;">
+                        SENG201<br> Lecture C3
+                    </div>
+                    
+                    <div class="event thu" style="--start:3; --duration:2; color: #8C5FF3;">
+                        SENG201 <br> Tutorial JE 133
+                    </div>
+
+                    <div class="event thu" style="--start:6; --duration:1; color: #f167b8;">
+                        MATH120 <br> Lecture A2
+                    </div>
+
+                    <div class="event thu" style="--start:7; --duration:1; color: #4ACBD2;">
+                        EMTH210 <br> Tutorial JE 121
+                    </div>
+
+                    <div class="event thu" style="--start:8; --duration:1; color: #64D258">
+                        COSC262 <br> Lecture E8
+                    </div>
+                    
+                    <div class="event fri" style="--start:2; --duration:1; color: #64D258">
+                        COSC262<br> Lecture E7
+                    </div>
+
+                    <div class="event fri" style="--start:7; --duration:2; color: #64D258">
+                        COSC262<br> Tutorial JE 133
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="panel" >
+        <div class="panel-title">Quizzes</div>
+        <div class="panel-content">
+            <h2>Quizzes</h2>
+            <p>Upcoming quiz dates and details.</p>
+        </div>
+    </div>
+
+    <div class="panel" >
+        <div class="panel-title">Assignments</div>
+        <div class="panel-content">
+            <h2>Assignments</h2>
+            <p>Track due dates and progress.</p>
+        </div>
+    </div>
+
+    <div class="panel" >
+        <div class="panel-title">Exams</div>
+        <div class="panel-content">
+            <h2>Exams</h2>
+            <p>Final exam schedule and preparation.</p>
+        </div>
+    </div>
+
+    <div class="panel" >
+        <div class="panel-title">Priority</div>
+        <div class="panel-content">
+            <h2>What Should I Do?</h2>
+            <p>Smart priority suggestions coming soon.</p>
+        </div>
+    </div>
+
+    <div class="panel" onclick="togglePanel(this)">
+        <div class="panel-title">Study</div>
+        <div class="panel-content">
+            <h2>Study Timer</h2>
+            <div id="timerDisplay">0:00:00</div>
+            <div class="timer-buttons">
+                <button onclick="startTimer(event)">Start</button>
+                <button onclick="pauseTimer(event)">Pause</button>
+                <button onclick="stopTimer(event)">Stop</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
